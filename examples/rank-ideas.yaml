@@ -1,0 +1,68 @@
+# jeff rank examples/rank-ideas.yaml
+# Ranks Jev project ideas for a solo builder who wants revenue soon.
+context:
+  builder: >-
+    Solo developer, strong in Go, Python, TypeScript. Uses Claude Code daily.
+    No sales team, no existing audience, small savings runway.
+    Wants revenue within months, not years.
+  model_facts: >-
+    Jev is a decision model by TypeSafe AI. It returns typed answers with
+    calibrated probabilities (Choice, Score, Noul), no text generation. Costs
+    $0.042 per million input tokens, about 150ms latency. Weights are shared by
+    all customers so domain rubrics are the main differentiator.
+items:
+  zapier_node: Zapier / Make / n8n "Decide" node wrapping Jev so no-code users add semantic branching to automations. Per-task pricing or bring-your-own-key upsell.
+  sheets_addon: Google Sheets / Excel add-on exposing Jev as cell functions (=JEV_NOUL, =JEV_CHOICE, =JEV_SCORE). Workspace Marketplace, freemium.
+  listing_qa: Shopify / Etsy app checking product listings for policy risk, wrong category, missing attributes. App-store subscription.
+  semantic_lint_ci: GitHub Action running team coding conventions as semantic checks on each PR diff. GitHub Marketplace subscription.
+  support_qa_scorer: Audits 100% of support agent replies against policy, replacing 2% manual QA sampling. Per-agent pricing.
+  inbox_triage_saas: Gmail / Outlook add-in triaging email for small law, accounting, property firms. Per-seat subscription.
+  llm_cost_router: Gateway routing each prompt to the cheapest adequate LLM using Jev difficulty and risk scores. Charge a share of savings.
+  sql_udf: Warehouse UDFs (Snowflake, BigQuery, DuckDB) exposing Jev as jev_noul(text, question). Per-seat or usage.
+dimensions:
+  revenue:
+    weight: 0.30
+    question: How much money could this realistically earn per year within 18 months if executed well by this builder?
+    levels:
+      - Essentially none; adoption play or hobby only
+      - Pocket money, under $10k per year
+      - Side income, $10k to $50k per year
+      - Living wage, $50k to $200k per year
+      - Real business, over $200k per year
+  time_to_dollar:
+    weight: 0.25
+    question: How quickly could this builder get a first paying customer?
+    levels:
+      - Over a year, or never pays directly
+      - Six to twelve months
+      - Three to six months
+      - One to three months
+      - Under a month
+  build_effort:
+    weight: 0.15
+    question: How much work is a sellable v1 for this builder?
+    levels:
+      - Many months, needs team or partnerships
+      - Two to three months solo
+      - One month solo
+      - One to two weeks solo
+      - A few days solo
+  distribution:
+    weight: 0.20
+    question: How easy is it to reach paying buyers without a sales team or audience?
+    levels:
+      - Needs enterprise sales cycle or warm intros
+      - Cold outreach required, hard to find buyers
+      - Findable via content or communities with effort
+      - Existing marketplace or app store brings buyers
+      - Buyers already searching for exactly this
+  moat:
+    weight: 0.10
+    question: How defensible is this against a copycat who also has Jev access?
+    levels:
+      - Trivially copied over a weekend
+      - Copied in a month; competes on polish only
+      - Domain rubrics and integrations take real work to replicate
+      - Accumulated data, tuned thresholds, or distribution lock-in
+      - Strong network effects or contracts
+overall: Which single item is most likely to make this builder meaningful money soonest?
