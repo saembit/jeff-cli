@@ -1,0 +1,19 @@
+# jeff eval -f examples/triage.yaml --state-file ticket.txt
+questions:
+  is_urgent:
+    type: noul
+    instructions: Does the customer convey urgency?
+    criteria:
+      "true": Explicitly time-sensitive or repeated failures
+      "false": No urgency expressed
+  team:
+    type: choice
+    instructions: Which team should handle this?
+    criteria:
+      billing: Payments, invoicing, refunds
+      technical: Bugs, outages, integrations
+      sales: Pricing, upgrades, new accounts
+  frustration:
+    type: score
+    instructions: How frustrated is the customer?
+    criteria: [Calm, Frustrated, Very angry]
