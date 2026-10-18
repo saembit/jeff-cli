@@ -87,6 +87,8 @@ The overall line is optional and adds one choice over every item. See examples/r
 
 0 means it worked and every gate held, 1 is an error such as bad flags, no key, network, api, etc. and 10 means the request worked but --fail-under, --fail-over or --min-confidence didn't hold.
 
+Jev can be steered by text in the state, so if the state comes from somewhere untrusted such as a ticket, a PR or a scraped page don't let a gate or exit code be the only thing standing in front of something consequential, add your own checks.
+
 # Using it from Go
 
 pkg/jev is a small client with no dependencies that retries 429, 529 and 5xx with backoff and honors Retry-After.
